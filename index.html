@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>청소로봇 제어</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <h1>청소로봇 제어</h1>
+    <button id="startButton">Start Cleaning</button>
+    <script>
+        const startButton = document.getElementById('startButton');
+        startButton.addEventListener('click', () => {
+            fetch('https://goat1109.github.io/WebTest//start_cleaning', {
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
